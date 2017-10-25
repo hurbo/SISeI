@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
-import { AngularFireDatabase } from 'angularfire2/database';
+
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
 
-import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
-
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 
 
 @Component({
@@ -14,23 +13,51 @@ import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/d
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  user: Observable<firebase.User>;
-  // items: FirebaseListObservable<any[]>;
 
   msgVal: string = '';
+  todos$: FirebaseListObservable<any[]>;
+
+  selectedUser : any;
+
 
   title = 'app';
-  items = ['1','2','3'];
+  user: Observable<firebase.User>;
 
 
-
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+  constructor(private afAuth: AngularFireAuth, private af: AngularFireDatabase) {
     this.user = this.afAuth.authState;
 
-    console.log('user ', this.user);
   }
 
+
+
+  ngOnInit() {
+    this.todos$ = this.af.list('/users');
+    console.log('this.todos$ ' ,this.todos$)
+  }
+
+
+  Send(value: string){
+    this.todos$.push({ name: value });
+    this.msgVal = '';
+  }
+
+  selectUser(value: any){
+    this.selectedUser = value;
+  }
+
+  update(tagen: any){
+    console.log(tagen);
+    this.af.object('/users/' + tagen.$key)
+    .update({ name: this.msgVal });
+
+  }
+
+  deleteTodo(todo: any) {
+    this.af.object('/todos/' + todo.$key).remove();
+  }
 
 
   login() {
@@ -41,9 +68,6 @@ export class AppComponent {
     this.afAuth.auth.signOut();
   }
 
-  Send(desc: string) {
-    console.log('send ',desc);
-    this.msgVal = '';
-  }
+
 
 }

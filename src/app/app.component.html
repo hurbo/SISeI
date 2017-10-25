@@ -1,17 +1,48 @@
+<div class="container">
 
-
-
-<div class="container" style="height : 300px;">
-
-  <button (click)="login()" *ngIf="!(user | async)?.uid"type="button" class="btn btn-info">Ingresar</button>
+  <button (click)="login()" *ngIf="!(user | async)?.uid" type="button" class="btn btn-info">Ingresar</button>
   <button (click)="logout()" *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
 
-  <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
 </div>
 
 
-<div class="container" style="height : 300px;">
+<!-- <form class="form-search">
+  <div class="input-append">
 
+
+    <input (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" type="text" class="span2 search-query">
+    <button (click) = "Send(msgVal)"  type="submit" class="btn">Agregar</button>
+  </div>
+</form>
+
+
+
+
+<div class="container">
+  <div *ngIf="selectedUser">
+    <h1>{{selectedUser.name}}</h1>
+    <input type="text" />
+    <button (click) ="update(selectedUser)" type="button" class="btn btn-danger">Update</button>
+    <button (click) ="deleteTodo(selectedUser)" type="button" class="btn btn-danger">deleteTodo</button>
+
+  </div>
+  <div *ngIf="!selectedUser">
+    <h1> Selecciona algo</h1>
+  </div>
 </div>
 
-<div class ="container" [froalaEditor]>Hello, Froala!</div>
+
+<ul>
+  <li *ngFor="let todo of (todos$ | async)">
+    <h1>{{todo.name}}</h1>
+
+    <button (click)="selectUser(todo)" type="button" class="btn btn-danger">selectUser</button>
+  </li>
+</ul>
+
+ -->
+
+
+
+
+<div class="container" [froalaEditor]>Hello, Froala!</div>
