@@ -6,12 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Router } from '@angular/router';
 
-
-
 import { routing, appRoutingProviders } from './app.routing';
 
-
-
+// Import AuthService provider
+import { AuthService } from './providers/auth.service';
 
 // Import Angular plugin.
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -26,13 +24,15 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
+
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyBLVg7bCMEiRG7xD4eu4_sv5G6BqAd1JUU",
-  authDomain: "go-angular-f9e0f.firebaseapp.com",
-  databaseURL: "https://go-angular-f9e0f.firebaseio.com",
-  projectId: "go-angular-f9e0f",
-  storageBucket: "go-angular-f9e0f.appspot.com",
-  messagingSenderId: "387596480886"
+  apiKey: "AIzaSyBGavdHxQVsOUOcYNNzc5tvyJHqlEgOLEU",
+  authDomain: "yeay-95f3e.firebaseapp.com",
+  databaseURL: "https://yeay-95f3e.firebaseio.com",
+  projectId: "yeay-95f3e",
+  storageBucket: "",
+  messagingSenderId: "111114367138"
 };
 
 @NgModule({
@@ -53,6 +53,7 @@ export const firebaseConfig = {
     AngularFireAuthModule
   ],
   providers: [
+    AuthService,
     appRoutingProviders,
     AngularFireDatabase
   ],

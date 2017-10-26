@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
 
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AuthService } from './providers/auth.service';
 
 
 @Component({
@@ -20,24 +22,18 @@ export class AppComponent {
   users: FirebaseListObservable<any[]>;
 
   selectedUser : any;
-
-
-  title = 'app';
   user: Observable<firebase.User>;
 
 
-  constructor(private afAuth: AngularFireAuth, private af: AngularFireDatabase) {
-    this.user = this.afAuth.authState;
-    console.log('este ususario ', this.user);
 
+  constructor(public customAuth : AuthService, public afAuth: AngularFireAuth , private af: AngularFireDatabase) {
+    console.log('aqui customAuth desde servicio ', customAuth.getUser())
+    this.user = afAuth.authState;
   }
 
 
 
   ngOnInit() {
-    if(this.user){
-      console.log('si existe');
-    }
     this.users = this.af.list('/users');
     console.log('this.users ' ,this.users)
   }
@@ -60,17 +56,9 @@ export class AppComponent {
   }
 
   deleteTodo(todo: any) {
-    this.af.object('/todos/' + todo.$key).remove();
+    this.af.object('/users/' + todo.$key).remove();
   }
 
-
-  login() {
-    this.afAuth.auth.signInAnonymously();
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
 
 
 

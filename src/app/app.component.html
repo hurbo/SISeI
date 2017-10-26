@@ -1,7 +1,7 @@
 <div class="container">
 
-  <button (click)="login()" *ngIf="!(user | async)?.uid" type="button" class="btn btn-info">Ingresar</button>
-  <button (click)="logout()" *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
+  <button *ngIf="!(user | async)?.uid" type="button" class="btn btn-info">Ingresar</button>
+  <button  *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
 
 </div>
 <a [routerLink]="['/dashboard']">dashboard</a>
@@ -35,10 +35,10 @@
 </div>
 
 
+
 <ul>
   <li *ngFor="let todo of (users | async)">
-    <h1>{{todo.name}}</h1>
-
+    <h4>{{todo.name}}</h4>
     <button (click)="selectUser(todo)" type="button" class="btn btn-danger">selectUser</button>
   </li>
 </ul>
