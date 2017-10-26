@@ -5,6 +5,7 @@ import { LoginComponent } from "./login/login.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { TestHooksComponent } from './test-hooks/test-hooks.component';
 
 // const appRoutes: Routes = [];
 // basico
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path : 'login' , component : LoginComponent },
   { path : 'dashboard' , component : DashboardComponent },
   { path : 'articles' , component : ArticlesComponent },
+  { path : 'test-hooks' , component : TestHooksComponent },
   { path : 'users-list' , component : UserListComponent },
   { path : '**' , redirectTo : 'login', pathMatch:'full'}
 ];

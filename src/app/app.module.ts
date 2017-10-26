@@ -29,6 +29,7 @@ import { ArticlesComponent } from './articles/articles.component';
 
 
 import { ProfileModule } from './profile/profile.module';
+import { TestHooksComponent } from './test-hooks/test-hooks.component';
 
 
 
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     DashboardComponent,
     NavbarComponent,
     UserListComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    TestHooksComponent
   ],
   imports: [
     BrowserModule,
