@@ -22,20 +22,18 @@ export class AppComponent {
   users: FirebaseListObservable<any[]>;
 
   selectedUser : any;
-  user: Observable<firebase.User>;
 
 
 
-  constructor(public customAuth : AuthService, public afAuth: AngularFireAuth , private af: AngularFireDatabase) {
-    console.log('aqui customAuth desde servicio ', customAuth.getUser())
-    this.user = afAuth.authState;
+
+  constructor(public authService : AuthService, public afAuth: AngularFireAuth , private af: AngularFireDatabase) {
+
   }
 
 
 
   ngOnInit() {
     this.users = this.af.list('/users');
-    console.log('this.users ' ,this.users)
   }
 
 

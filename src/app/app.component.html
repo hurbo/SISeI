@@ -1,11 +1,17 @@
-<div class="container">
+<!-- <div class="container">
 
   <button *ngIf="!(user | async)?.uid" type="button" class="btn btn-info">Ingresar</button>
   <button  *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
 
 </div>
 <a [routerLink]="['/dashboard']">dashboard</a>
-<a [routerLink]="['/login']">login</a>
+<a [routerLink]="['/login']">login</a> -->
+<h5 *ngIf="authService.user | async">AppComponent dice hola : {{ (authService.user | async)?.email }}!</h5>
+
+<app-navbar></app-navbar>
+
+
+
 
 <router-outlet></router-outlet>
 

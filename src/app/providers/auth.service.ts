@@ -14,7 +14,12 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
+
   }
+  refreshUser(){
+    this.user = this.afAuth.authState;
+  }
+
   getUser(){
     return this.user;
   }
@@ -25,7 +30,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Success!', value);
-        this.user = value;
+        this.user = this.afAuth.authState;
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
@@ -38,6 +43,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         this.user = value;
+        this.user = this.afAuth.authState;
 
       })
       .catch(err => {
@@ -56,7 +62,8 @@ export class AuthService {
     return this.afAuth.auth.signInAnonymously()
     .then(value => {
       this.user = value;
-      console.log('logeado anonimo ',value)
+      console.log('logeado anonimo ',value);
+      this.user = this.afAuth.authState;
 
     })
     .catch(err => {
@@ -66,8 +73,10 @@ export class AuthService {
   }
 
   logout() {
-    console.log('adios')
-    return this.afAuth.auth.signOut();
+    alert();
+    this.user = this.afAuth.authState;
+    this.afAuth.auth.signOut();
+    location.reload();
   }
 
 }
