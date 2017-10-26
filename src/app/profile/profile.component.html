@@ -1,4 +1,5 @@
-
+<h1>__________________________________</h1>
+<h5>Componente padre</h5>
 <ul class="nav nav-pills nav-stacked">
   <a class="navbar-brand" [routerLink]="['posts', 30]" [routerLinkActive] = "['active']" >Ir al post 30</a>
   <a class="navbar-brand" [routerLink]="['preferences']" [routerLinkActive] = "['active']" >Preferencias </a>
@@ -7,7 +8,16 @@
 
   </ul>
 
+<input type="text" [(ngModel)]="nombrePadre" />
+
+<h1>__________________________________</h1>
 
 
+<h5>Componente hijo</h5>
+
+<profile-children [nombreDelPapa] = "'akshjaljsklaj'" ></profile-children>
+
+
+<h1>__________________________________</h1>
 
 <router-outlet></router-outlet>

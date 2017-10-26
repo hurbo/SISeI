@@ -11,6 +11,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { PostsComponent } from './posts/posts.component';
+import { ChildrenComponent } from './children/children.component';
 
 
 
@@ -20,7 +21,8 @@ import { PostsComponent } from './posts/posts.component';
   declarations: [
     ProfileComponent,
     PreferencesComponent,
-    PostsComponent
+    PostsComponent,
+    ChildrenComponent
   ],
   imports: [
     CommonModule,
