@@ -1,4 +1,13 @@
-<p>
-  profile works! {{title}}
-</p>
+
+<ul class="nav nav-pills nav-stacked">
+  <a class="navbar-brand" [routerLink]="['posts', 30]" [routerLinkActive] = "['active']" >Ir al post 30</a>
+  <a class="navbar-brand" [routerLink]="['preferences']" [routerLinkActive] = "['active']" >Preferencias </a>
+
+
+
+  </ul>
+
+
+
+
 <router-outlet></router-outlet>

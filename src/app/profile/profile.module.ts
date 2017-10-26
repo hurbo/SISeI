@@ -7,8 +7,10 @@ import { HttpModule } from '@angular/http';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 
-import { PreferencesComponent } from './preferences/preferences.component';
+
 import { ProfileComponent } from './profile.component';
+import { PreferencesComponent } from './preferences/preferences.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 
@@ -17,7 +19,8 @@ import { ProfileComponent } from './profile.component';
 @NgModule({
   declarations: [
     ProfileComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    PostsComponent
   ],
   imports: [
     CommonModule,
