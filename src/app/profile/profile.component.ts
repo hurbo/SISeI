@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output} from '@angular/core';
 
 @Component({
   selector: 'profile-main',
@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   title = 'Panel de adinistración';
+  nombreDelPapa : string;
 
-  constructor() { }
+  constructor() {
+    this.nombreDelPapa = 'Inicializado desde constructor del padre';
+  }
 
   ngOnInit() {
   }

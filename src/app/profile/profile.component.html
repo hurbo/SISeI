@@ -8,14 +8,16 @@
 
   </ul>
 
-<input type="text" [(ngModel)]="nombrePadre" />
+<input type="text" [(ngModel)]="nombreDelPapa" />
+<h5>nombreDelPapa desde padre : {{nombreDelPapa}}</h5>
 
 <h1>__________________________________</h1>
 
 
 <h5>Componente hijo</h5>
 
-<profile-children [nombreDelPapa] = "'akshjaljsklaj'" ></profile-children>
+<!-- <profile-children [nombreDelPapa] = "'Inicializado desde el padre'" ></profile-children> -->
+<profile-children [nombreDelPapa] = "nombreDelPapa" ></profile-children>
 
 
 <h1>__________________________________</h1>
