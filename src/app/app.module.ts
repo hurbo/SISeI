@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 
 
@@ -43,7 +44,8 @@ export const firebaseConfig = {
     LoginComponent,
     DashboardComponent,
     NavbarComponent,
-    UserListComponent
+    UserListComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,

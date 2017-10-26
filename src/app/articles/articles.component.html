@@ -1,0 +1,24 @@
+
+
+<div class="content" *ngIf="selectedArticle">
+  <h1>Nombre : <strong>{{selectedArticle.name}}</strong></h1>
+  <div class="" [innerHtml]="selectedArticle.content">
+
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let article of (articles | async)">
+    <button (click)="selectArticle(article)" type="button" class="btn btn-info">Seleccionar a : {{article.name}}</button>
+  </li>
+</ul>
+
+
+<div class="container">
+
+  <input [(ngModel)]="articleName" type="text" />
+  <div [froalaEditor] [(ngModel)] = "content" >Hello, Froala!</div>
+  <button (click)="addArticle(articleName)" type="button" class="btn btn-danger">Agregar</button>
+
+
+</div>

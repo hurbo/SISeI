@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar navbar-inverse bg-inverse nav-bar sticky-top">
-  <a class="navbar-brand" [routerLink]="['/dashboard']">Muro</a>
-  <a class="navbar-brand" [routerLink]="['/users-list']">Lista de usuarios</a>
+  <a class="navbar-brand" [routerLink]="['/dashboard']" [routerLinkActive] = "['active']" >Muro</a>
+  <a class="navbar-brand" [routerLink]="['/users-list']" [routerLinkActive] = "['active']" >Lista de usuarios</a>
+  <a class="navbar-brand" [routerLink]="['/articles']" [routerLinkActive] = "['active']" >Articulos</a>
   <a class="navbar-brand pull-rigth" (click)="authService.logout()">Salir</a>
 </nav>
