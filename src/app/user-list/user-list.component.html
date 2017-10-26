@@ -1,29 +1,21 @@
-
-
-
- <form class="form-search">
-  <div class="input-append">
-
-
-    <input (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" type="text" class="span2 search-query">
-    <button (click) = "Send(msgVal)"  type="submit" class="btn">Agregar</button>
-  </div>
-</form>
-
-
-
-
 <div class="container">
   <div *ngIf="selectedUser">
     <h1>{{selectedUser.name}}</h1>
-    <input type="text" />
-    <button (click) ="update(selectedUser)" type="button" class="btn btn-danger">Update</button>
-    <button (click) ="deleteTodo(selectedUser)" type="button" class="btn btn-danger">deleteTodo</button>
-
+    <input [(ngModel)]="selectedUser.name" type="text" />
+    <button (click)="update(selectedUser)" type="button" class="btn btn-danger">Update</button>
+    <button (click)="deleteTodo(selectedUser)" type="button" class="btn btn-danger">deleteTodo</button>
   </div>
   <div *ngIf="!selectedUser">
     <h1> Selecciona algo</h1>
   </div>
+</div>
+<div class="container">
+
+  <h1>{{newName}}</h1>
+  <input [(ngModel)]="newName" type="text" />
+  <button (click)="Send(newName)" type="button" class="btn btn-danger">Agregar</button>
+
+
 </div>
 
 

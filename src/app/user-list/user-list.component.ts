@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
   update(tagen: any) {
     console.log(tagen);
     this.af.object('/users/' + tagen.$key)
-      .update({ name: this.msgVal });
+      .update({ name: tagen.name });
 
   }
 
