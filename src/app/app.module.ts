@@ -28,6 +28,10 @@ import { ArticlesComponent } from './articles/articles.component';
 
 
 
+import { ProfileModule } from './profile/profile.module';
+
+
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBGavdHxQVsOUOcYNNzc5tvyJHqlEgOLEU",
@@ -56,7 +60,8 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ProfileModule
   ],
   providers: [
     AuthService,
