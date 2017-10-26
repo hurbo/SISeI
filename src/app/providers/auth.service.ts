@@ -20,9 +20,6 @@ export class AuthService {
     this.user = this.afAuth.authState;
   }
 
-  getUser(){
-    return this.user;
-  }
 
   signup(email, password) {
     this.afAuth
@@ -64,7 +61,7 @@ export class AuthService {
       this.user = value;
       console.log('logeado anonimo ',value);
       this.user = this.afAuth.authState;
-
+      
     })
     .catch(err => {
       console.log('Something went wrong:', err.message);
@@ -73,7 +70,6 @@ export class AuthService {
   }
 
   logout() {
-    alert();
     this.user = this.afAuth.authState;
     this.afAuth.auth.signOut();
     location.reload();

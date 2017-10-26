@@ -4,9 +4,11 @@
   <button  *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
 
 </div>
-<a [routerLink]="['/dashboard']">dashboard</a>
-<a [routerLink]="['/login']">login</a> -->
-<h5 *ngIf="authService.user | async">AppComponent dice hola : {{ (authService.user | async)?.email }}!</h5>
+<a *ngIf="(user | async)?.uid"  [routerLink]="['/dashboard']">dashboard</a>
+<a *ngIf="(user | async)?.uid"  [routerLink]="['/login']">login</a>
+
+-->
+
 
 <app-navbar></app-navbar>
 
