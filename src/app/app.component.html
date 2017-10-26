@@ -1,13 +1,3 @@
-<!-- <div class="container">
-
-  <button *ngIf="!(user | async)?.uid" type="button" class="btn btn-info">Ingresar</button>
-  <button  *ngIf="(user | async)?.uid" type="button" class="btn btn-danger">Salir</button>
-
-</div>
-<a *ngIf="(user | async)?.uid"  [routerLink]="['/dashboard']">dashboard</a>
-<a *ngIf="(user | async)?.uid"  [routerLink]="['/login']">login</a>
-
--->
 
 
 <app-navbar></app-navbar>
@@ -16,44 +6,3 @@
 
 
 <router-outlet></router-outlet>
-
-<!-- <form class="form-search">
-  <div class="input-append">
-
-
-    <input (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" type="text" class="span2 search-query">
-    <button (click) = "Send(msgVal)"  type="submit" class="btn">Agregar</button>
-  </div>
-</form>
-
-
-
-
-<div class="container">
-  <div *ngIf="selectedUser">
-    <h1>{{selectedUser.name}}</h1>
-    <input type="text" />
-    <button (click) ="update(selectedUser)" type="button" class="btn btn-danger">Update</button>
-    <button (click) ="deleteTodo(selectedUser)" type="button" class="btn btn-danger">deleteTodo</button>
-
-  </div>
-  <div *ngIf="!selectedUser">
-    <h1> Selecciona algo</h1>
-  </div>
-</div>
-
-
-
-<ul>
-  <li *ngFor="let todo of (users | async)">
-    <h4>{{todo.name}}</h4>
-    <button (click)="selectUser(todo)" type="button" class="btn btn-danger">selectUser</button>
-  </li>
-</ul>
-
- -->
-
-<!--
-
-
-<div class="container" [froalaEditor]>Hello, Froala!</div> -->

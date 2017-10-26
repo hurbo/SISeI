@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { LoginComponent } from "./login/login.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { UserListComponent } from './user-list/user-list.component';
 
 // const appRoutes: Routes = [];
 // basico
@@ -12,10 +13,10 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 // export const appRoutingProviders :any[]=[];
 // esto se lo ocupa el router para los servicios que se ocupen
 const appRoutes: Routes = [
-  { path : '' , component : LoginComponent },
   { path : '' , redirectTo : 'login', pathMatch:'full'},
   { path : 'login' , component : LoginComponent },
   { path : 'dashboard' , component : DashboardComponent },
+  { path : 'users-list' , component : UserListComponent },
   { path : '**' , redirectTo : 'login', pathMatch:'full'}
 ];
 

@@ -23,6 +23,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

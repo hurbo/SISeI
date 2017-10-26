@@ -2,7 +2,10 @@
 
   <a class="navbar-brand" *ngIf="!(authService.user | async)" [routerLink]="['/login']">Ingresa al sistema</a>
 
-  <a class="navbar-brand" *ngIf="authService.user | async" [routerLink]="['/dashboard']">dashboard</a>
+  <a class="navbar-brand" *ngIf="authService.user | async" [routerLink]="['/dashboard']">Muro</a>
+  <a class="navbar-brand" *ngIf="authService.user | async" [routerLink]="['/users-list']">Lista de usuarios</a>
+
+  <a class="navbar-brand pull-rigth" *ngIf="authService.user | async" (click)="authService.logout()">Salir</a>
 
 
 </nav>
