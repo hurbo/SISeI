@@ -6,20 +6,26 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
-
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>;
+  public user: Observable<firebase.User>;
+  public userDetails: firebase.User = null;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.authState;
-
+    this.user.subscribe(
+        (user) => {
+          if (user) {
+            this.userDetails = user;
+          }
+          else {
+            this.userDetails = null;
+          }
+        }
+      );
   }
-  refreshUser(){
-    this.user = this.afAuth.authState;
-  }
-
 
   signup(email, password) {
     this.afAuth
@@ -30,7 +36,7 @@ export class AuthService {
         this.user = this.afAuth.authState;
       })
       .catch(err => {
-        console.log('Something went wrong:', err.message);
+        console.log('Ya tienes una cuenta ?', err.message);
       });
   }
 
@@ -44,7 +50,7 @@ export class AuthService {
 
       })
       .catch(err => {
-        console.log('Something went wrong:', err.message);
+        console.log('Esta bien tu información', err.message);
 
       });
 
@@ -61,10 +67,10 @@ export class AuthService {
       this.user = value;
       console.log('logeado anonimo ',value);
       this.user = this.afAuth.authState;
-      
+
     })
     .catch(err => {
-      console.log('Something went wrong:', err.message);
+      console.log('Es posble que no tengas activada la opcion de login anonimo en firebase', err.message);
 
     });
   }
