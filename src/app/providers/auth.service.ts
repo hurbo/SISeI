@@ -47,13 +47,10 @@ export class AuthService {
       .then(value => {
         this.user = value;
         this.user = this.afAuth.authState;
-
       })
       .catch(err => {
         console.log('Esta bien tu información', err.message);
-
       });
-
   }
 
   loginWithGoogle() {
