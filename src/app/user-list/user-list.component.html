@@ -1,3 +1,5 @@
+{{ (authService.user | async)?.email }}!
+
 <div class="container">
   <div *ngIf="selectedUser">
     <h1>{{selectedUser.name}}</h1>
@@ -11,7 +13,6 @@
 </div>
 <div class="container">
 
-  <h1>{{newName}}</h1>
   <input [(ngModel)]="newName" type="text" />
   <button (click)="Send(newName)" type="button" class="btn btn-danger">Agregar</button>
 

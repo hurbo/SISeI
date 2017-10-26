@@ -20,9 +20,12 @@ export class LoginComponent implements OnInit {
   ) { }
 
   user: Observable<firebase.User>;
+  userEmail: string = '';
+  userPassword: string = '';
 
   ngOnInit() {
-    this.user = this.authService.user;
+    this.userEmail = 'txt userEmail';
+    this.userPassword = 'txt userPassword';
   }
 
   login() {
@@ -35,24 +38,24 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['dashboard']);
     })
   }
-  logout(){
+  logout() {
     this.authService.logout();
     location.reload();
   }
-  signup(){
+  signup() {
     // TODO: Aqui desde formulario
     var email = "alfonso@torres.com";
     var password = "123456789";
-    var solve = this.authService.signup(email ,password);
-    console.log(' signup quedo con  ',solve );
+    var solve = this.authService.signup(email, password);
+    console.log(' signup quedo con  ', solve);
   }
-  loginWithEmailAndPassword(){
+  loginWithEmailAndPassword() {
     // TODO: Aqui desde formulario
     var email = "alfonso@torres.com";
     var password = "123456789";
-    var solve = this.authService.loginWithEmailAndPassword(email ,password);
+    var solve = this.authService.loginWithEmailAndPassword(email, password);
 
-    console.log('loginWithEmailAndPassword quedo con  ',solve );
+    console.log('loginWithEmailAndPassword quedo con  ', solve);
   }
 
 }

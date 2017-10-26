@@ -13,7 +13,7 @@ import { AuthService } from '../providers/auth.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  msgVal: string = '';
+  newName: string = '';
   users: FirebaseListObservable<any[]>;
 
   selectedUser: any;
@@ -31,7 +31,7 @@ export class UserListComponent implements OnInit {
 
   Send(value: string) {
     this.users.push({ name: value });
-    this.msgVal = '';
+    this.newName = '';
   }
 
   selectUser(value: any) {

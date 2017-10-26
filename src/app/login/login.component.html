@@ -1,24 +1,20 @@
-<div class="container">
-  <div>
-    <h1>Login To Your Account</h1>
-    <!-- <button class="btn btn-default" (click)="loginGoogle()">Login With Google</button> -->
-    <button class="btn btn-default" (click)="login()">Login</button>
+<div class="loginContainer">
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin">
+      <span id="reauth-email" class="reauth-email"></span>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div id="remember" class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Recuerdame
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block btn-signup" type="submit">Ingresar</button>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Registrarse</button>
 
-    <button class="btn btn-default" (click)="loginWithEmailAndPassword()">Iniciar con alfonso</button>
-    <button class="btn btn-default" (click)="logout()">Salir</button>
+    </form>
+    <a href="#" class="forgot-password"> No recuerdas tu contraseña? </a>
   </div>
-</div>
-
-
-
-
-<div>
-  <input type="email" [(ngModel)]="email" placeholder="Correo electronico">
-  <input type="password" [(ngModel)]="password" placeholder="Contraseña">
-
-
-
-<button class="btn btn-default" (click)="signup()" [disabled]="!email || !password">Registrar</button>
-
-
 </div>
