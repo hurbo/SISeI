@@ -17,7 +17,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 export class AppComponent {
 
   msgVal: string = '';
-  todos$: FirebaseListObservable<any[]>;
+  users: FirebaseListObservable<any[]>;
 
   selectedUser : any;
 
@@ -28,19 +28,23 @@ export class AppComponent {
 
   constructor(private afAuth: AngularFireAuth, private af: AngularFireDatabase) {
     this.user = this.afAuth.authState;
+    console.log('este ususario ', this.user);
 
   }
 
 
 
   ngOnInit() {
-    this.todos$ = this.af.list('/users');
-    console.log('this.todos$ ' ,this.todos$)
+    if(this.user){
+      console.log('si existe');
+    }
+    this.users = this.af.list('/users');
+    console.log('this.users ' ,this.users)
   }
 
 
   Send(value: string){
-    this.todos$.push({ name: value });
+    this.users.push({ name: value });
     this.msgVal = '';
   }
 

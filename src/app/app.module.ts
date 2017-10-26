@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
-// Import Forms
 import { FormsModule } from '@angular/forms';
-
-// Import Http
 import { HttpModule } from '@angular/http';
+import { Router } from '@angular/router';
+
+
+
+import { routing, appRoutingProviders } from './app.routing';
+
+
 
 
 // Import Angular plugin.
@@ -19,6 +22,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 export const firebaseConfig = {
@@ -32,7 +37,9 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +47,13 @@ export const firebaseConfig = {
     FroalaViewModule.forRoot(),
     FormsModule,
     HttpModule,
+    routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
   providers: [
+    appRoutingProviders,
     AngularFireDatabase
   ],
   bootstrap: [AppComponent]
