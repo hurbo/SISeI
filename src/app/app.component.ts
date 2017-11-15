@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './providers/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 import { Alumno } from './models/alumno';
 
@@ -18,12 +18,13 @@ export class AppComponent {
   private user_displayName: String;
   private user_email: String;
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router, private route: ActivatedRoute) {
 
     this.alumno = new Alumno();
     this.alumno.param1 = "Tus valores desde aqui";
 
-    console.log('Desde modelo ', this.alumno)
+
+
 
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -37,8 +38,11 @@ export class AppComponent {
           this.isLoggedIn = true;
           this.user_displayName = auth.email;
           this.user_email = auth.email;
-          console.log("Logged in");
-          this.router.navigate(['/dashboard']);
+          console.log("Logged in ",);
+          if(this.router.routerState.snapshot.url === '/login'){
+            this.router.navigate(['/dashboard']);
+          }
+
         }
       }
     );
@@ -49,6 +53,10 @@ export class AppComponent {
   ngOnInit() {
 
   }
+
+
+
+
 
 
 }

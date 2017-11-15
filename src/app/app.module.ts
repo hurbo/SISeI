@@ -30,7 +30,8 @@ import { ArticlesComponent } from './articles/articles.component';
 
 import { ProfileModule } from './profile/profile.module';
 import { TestHooksComponent } from './test-hooks/test-hooks.component';
-
+import { FileDropDirective } from './directives/file-drop.directive';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 
 
@@ -48,6 +49,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
+    FileDropDirective,
+    UploadFormComponent,
     DashboardComponent,
     NavbarComponent,
     UserListComponent,
