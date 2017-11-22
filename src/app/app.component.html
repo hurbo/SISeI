@@ -1,9 +1,10 @@
+<app-navbar *ngIf="authService.user | async">
 
-
-<app-navbar *ngIf="authService.user | async"></app-navbar>
+</app-navbar>
 
 
 
 
 <router-outlet></router-outlet>
-<!-- <upload-form></upload-form> -->
+
+<form-upload></form-upload>

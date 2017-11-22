@@ -30,27 +30,21 @@ import { ArticlesComponent } from './articles/articles.component';
 
 import { ProfileModule } from './profile/profile.module';
 import { TestHooksComponent } from './test-hooks/test-hooks.component';
-import { FileDropDirective } from './directives/file-drop.directive';
-import { UploadFormComponent } from './upload-form/upload-form.component';
 
 
+import {FormUploadComponent} from './upload/form-upload.component';
+import {UploadFileService} from './upload/upload-file.service';
 
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyBGavdHxQVsOUOcYNNzc5tvyJHqlEgOLEU",
-  authDomain: "yeay-95f3e.firebaseapp.com",
-  databaseURL: "https://yeay-95f3e.firebaseio.com",
-  projectId: "yeay-95f3e",
-  storageBucket: "",
-  messagingSenderId: "111114367138"
-};
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FileDropDirective,
-    UploadFormComponent,
+    FormUploadComponent,
     DashboardComponent,
     NavbarComponent,
     UserListComponent,
@@ -64,7 +58,7 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     routing,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ProfileModule
@@ -72,7 +66,8 @@ export const firebaseConfig = {
   providers: [
     AuthService,
     appRoutingProviders,
-    AngularFireDatabase
+    AngularFireDatabase,
+    UploadFileService
   ],
   bootstrap: [AppComponent]
 })
